@@ -1,0 +1,43 @@
+.about {
+  display: grid;
+  gap: var(--s-4-5);
+
+  .intro {
+    display: grid;
+    gap: var(--s-2-4);
+  }
+
+  .sections {
+    display: grid;
+    gap: var(--s-4-5);
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+
+    .section {
+      display: grid;
+      gap: var(--s-2-4);
+      width: 100%;
+    }
+  }
+
+  .skills {
+    display: grid;
+    gap: var(--s-2-4);
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+
+    .image {
+      width: 100%;
+
+      img {
+        margin: 0 auto;
+        border-radius: 0.8rem;
+        overflow: hidden;
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+section.with-gradient {
+  background: var(--section-background);
+  padding: var(--s-4-5) 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+a {
+  width: fit-content;
+}
+
+.readable-content {
+  max-width: var(--max-readable-width);
+}
+
+.markdown {
+  display: grid;
+  gap: var(--s-4);
+
+  h2 {
+    font-size: var(--fs-h3);
+  }
+
+  h3 {
+    font-size: var(--fs-h4);
+  }
+
+  h4 {
+    font-weight: var(--fw-regular);
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}

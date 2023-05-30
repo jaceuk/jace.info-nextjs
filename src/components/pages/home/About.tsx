@@ -4,7 +4,7 @@ import content from '@content/about.json';
 import styles from './About.module.scss';
 import Card from '@components/shared/Card';
 
-export default function Hero() {
+export default function About() {
   return (
     <section className="with-gradient">
       <InnerWrapper>

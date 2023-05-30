@@ -20,8 +20,7 @@
         "Express"
       ],
       "date": "2222-09-22",
-      "lighthouseScores": [90, 98, 97, 100],
-      "featured": true
+      "lighthouseScores": [90, 98, 97, 100]
     },
     {
       "title": "ESO Builder",
@@ -30,8 +29,7 @@
       "intro": "A companion web app to support The Elder Scrolls Online, a popular massively multiplayer online roleplaying game.",
       "tech": ["HTML", "React", "CSS/Sass", "JavaScript", "MySQL", "PHP", "REST API", "Slim", "UX/UI"],
       "date": "2023-10-30",
-      "lighthouseScores": [93, 97, 100, 100],
-      "featured": true
+      "lighthouseScores": [93, 97, 100, 100]
     },
     {
       "title": "VIP Dine",
@@ -40,8 +38,7 @@
       "intro": "A brochureware website for a company that offers a low cost way for restaurants to take table reservations and food orders online.",
       "tech": ["HTML", "React", "CSS/Sass", "JavaScript", "Gatsby", "UX/UI"],
       "date": "2222-09-21",
-      "lighthouseScores": [92, 95, 92, 90],
-      "featured": false
+      "lighthouseScores": [92, 95, 92, 90]
     },
     {
       "title": "EVO Home Services",
@@ -50,8 +47,7 @@
       "intro": "High perfoming bespoke websites with the specific goal of going head-to-head with the competition in Google local searches.",
       "tech": ["HTML", "CSS/Sass", "JavaScript", "PHP", "MySQL", "SEO", "UX/UI", "Slim", "REST API"],
       "date": "2222-09-19",
-      "lighthouseScores": [93, 88, 83, 91],
-      "featured": false
+      "lighthouseScores": [93, 88, 83, 91]
     }
   ]
 }

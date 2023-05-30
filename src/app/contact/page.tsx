@@ -1,3 +1,5 @@
+import Contact from '@/components/pages/contact/Contact';
+
 export default function ContactPage() {
-  return <p>Contact</p>;
+  return <Contact />;
 }

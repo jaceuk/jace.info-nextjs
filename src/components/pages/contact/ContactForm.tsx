@@ -14,10 +14,7 @@ export default function Contact() {
     message: '',
   });
 
-  const [form, setForm] = React.useState({
-    state: '',
-    message: '',
-  });
+  const [formState, setFormState] = React.useState('');
 
   const handleChange = (element: { target: { id: any; value: any } }) => {
     setInputs((prev) => ({
@@ -30,7 +27,7 @@ export default function Contact() {
     event.preventDefault();
 
     if (inputs.name && inputs.email && inputs.message) {
-      setForm({ state: 'loading', message: 'Loading.' });
+      setFormState('loading');
 
       try {
         const res = await fetch('api/contact', {
@@ -43,28 +40,19 @@ export default function Contact() {
 
         const { error } = await res.json();
 
-        if (!error) {
-          setForm({
-            state: 'error',
-            message: error,
-          });
+        if (error) {
+          setFormState('error');
           return;
         }
 
-        setForm({
-          state: 'success',
-          message: 'Your message was sent successfully',
-        });
+        setFormState('success');
         setInputs({
           name: '',
           email: '',
           message: '',
         });
       } catch (error) {
-        setForm({
-          state: 'error',
-          message: 'Something went wrong',
-        });
+        setFormState('error');
       }
     }
   };
@@ -72,18 +60,20 @@ export default function Contact() {
   return (
     <div className={styles.formContainer}>
       <Card>
-        {form.state === 'loading' ? (
+        {formState === 'loading' && (
           <Overlay>
             <Loader>Sending</Loader>
           </Overlay>
-        ) : form.state === 'error' ? (
+        )}
+
+        {formState === 'error' && (
           <Alert type="error">
             There was a problem sending your message, please try again. If the problem perists please email
             info@jace.info.
           </Alert>
-        ) : (
-          form.state === 'success' && <Alert type="success">Your message was sent successfully</Alert>
         )}
+
+        {formState === 'success' && <Alert type="success">Your message was sent successfully</Alert>}
 
         <form onSubmit={(event) => onSubmitForm(event)} className={styles.form}>
           <div className={styles.row}>

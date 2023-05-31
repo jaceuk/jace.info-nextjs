@@ -7,30 +7,70 @@ import Loader from '@components/shared/Loader';
 import Alert from '@components/shared/Alert';
 import Card from '@/components/shared/Card';
 
+declare global {
+  interface Window {
+    grecaptcha: any;
+  }
+}
+
 export default function Contact() {
   const [inputs, setInputs] = React.useState({
     name: '',
     email: '',
     message: '',
   });
+  const [formState, setFormState] = React.useState<'' | 'error' | 'loading' | 'success'>('');
 
-  const [formState, setFormState] = React.useState('');
-
-  const handleChange = (element: { target: { id: any; value: any } }) => {
+  function handleChange(element: { target: { id: any; value: any } }) {
     setInputs((prev) => ({
       ...prev,
       [element.target.id]: element.target.value,
     }));
-  };
+  }
 
-  const onSubmitForm = async (event: React.FormEvent<HTMLFormElement>) => {
+  async function checkRecaptcha(token: string) {
+    const response = await fetch('api/contact/verify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        reCaptchaKey: token,
+      }),
+    }).catch(() => {
+      setFormState('error');
+    });
+
+    return response;
+  }
+
+  async function onSubmitForm(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setFormState('loading');
 
+    window.grecaptcha.ready(() => {
+      window.grecaptcha
+        .execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'contactSubmit' })
+        .then(async (token: string) => {
+          const response = await checkRecaptcha(token);
+
+          const { error } = await response?.json();
+          console.log(error);
+
+          if (error) {
+            console.log('Captcha could not be verified. Please try again.');
+            setFormState('error');
+          } else {
+            sendMessage();
+          }
+        });
+    });
+  }
+
+  async function sendMessage() {
     if (inputs.name && inputs.email && inputs.message) {
-      setFormState('loading');
-
       try {
-        const res = await fetch('api/contact', {
+        const response = await fetch('api/contact', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -38,7 +78,7 @@ export default function Contact() {
           body: JSON.stringify(inputs),
         });
 
-        const { error } = await res.json();
+        const { error } = await response.json();
 
         if (error) {
           setFormState('error');
@@ -55,7 +95,32 @@ export default function Contact() {
         setFormState('error');
       }
     }
-  };
+  }
+
+  React.useEffect(() => {
+    const loadScriptByURL = (id: string, url: string, callback: () => void) => {
+      const isScriptExist = document.getElementById(id);
+
+      if (!isScriptExist) {
+        const script = document.createElement('script');
+        script.src = url;
+        script.id = id;
+        script.onload = () => {
+          if (callback) callback();
+        };
+        document.body.appendChild(script);
+      }
+
+      if (isScriptExist && callback) callback();
+    };
+
+    // load the script by passing the URL
+    loadScriptByURL(
+      'recaptcha-key',
+      `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`,
+      () => {},
+    );
+  }, []);
 
   return (
     <div className={styles.formContainer}>

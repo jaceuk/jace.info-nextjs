@@ -1,15 +1,14 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 
-export default async function Contact(req: NextApiRequest, res: NextApiResponse) {
-  const { name, email, message } = req.body;
+export async function POST(req: Request) {
+  const { name, email, message } = await req.json();
 
   let transporter;
 
   if (process.env.SMTP_SECURE === 'true') {
     transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
+      port: Number(process.env.SMTP_PORT),
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -19,7 +18,7 @@ export default async function Contact(req: NextApiRequest, res: NextApiResponse)
   } else {
     transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
+      port: Number(process.env.SMTP_PORT),
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -38,7 +37,7 @@ export default async function Contact(req: NextApiRequest, res: NextApiResponse)
       `,
     });
   } catch (error) {
-    return res.status(500).json({ error: error.message || error.toString() });
+    return new Response(JSON.stringify({ error: true }));
   }
-  return res.status(200).json({ error: '' });
+  return new Response(JSON.stringify({ error: false }));
 }

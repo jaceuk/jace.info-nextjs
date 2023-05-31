@@ -1,5 +1,7 @@
 .formContainer {
   max-width: 750px;
+  min-width: 450px;
+  width: 100%;
 
   p {
     flex-grow: 1;

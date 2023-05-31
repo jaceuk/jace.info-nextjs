@@ -1,8 +1,10 @@
 import * as React from 'react';
 import InnerWrapper from '@components/shared/InnerWrapper';
+import Image from 'next/image';
 import content from '@content/contact.json';
-import styles from './Contact.module.scss';
 import ContactForm from './ContactForm';
+import Marty from '@images/marty.jpg';
+import styles from './Contact.module.scss';
 
 export default function Contact() {
   return (
@@ -14,7 +16,12 @@ export default function Contact() {
             <p>{content.text}</p>
           </div>
 
-          <ContactForm />
+          <div className={styles.container}>
+            <ContactForm />
+            <div className={styles.image}>
+              <Image src={Marty} alt="" fill />
+            </div>
+          </div>
         </div>
       </InnerWrapper>
     </section>

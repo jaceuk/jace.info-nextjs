@@ -28,7 +28,7 @@
   --c-average: rgb(211, 123, 0);
   --c-poor: #c74845;
   --c-lighthouseGood: #00cc66;
-  --c-lighthouseGoodDark: #028802;
+  --c-lighthouseGoodDark: #026918;
   --c-lighthouseGoodPale: #e6faf0;
   --c-lighthouseAverage: #ffaa33;
   --c-lighthouseAverageDark: #c33300;
@@ -37,7 +37,7 @@
   --c-lighthousePoorDark: #c00;
   --c-lighthousePoorPale: #ffebeb;
 
-  --c-alert-success-text: #028802;
+  --c-alert-success-text: #026918;
   --c-alert-success-bg: #e6faf0;
   --c-alert-error-text: #c00;
   --c-alert-error-bg: #ffebeb;

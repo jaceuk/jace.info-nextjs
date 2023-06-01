@@ -4,9 +4,9 @@ import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import InnerWrapper from '@components/shared/InnerWrapper';
-import styles from './Navbar.module.scss';
+import styles from './Header.module.scss';
 
-export default function Navbar() {
+export default function Header() {
   const pathName = usePathname();
   const [activeButton, setActiveButton] = React.useState<React.RefObject<HTMLAnchorElement>>();
   const homeButton = React.useRef<HTMLAnchorElement>(null);
@@ -20,7 +20,7 @@ export default function Navbar() {
   }, [pathName]);
 
   return (
-    <div className={styles.navbarContainer}>
+    <header className={styles.header}>
       <InnerWrapper>
         <div className={styles.navbar}>
           <Link href="/" className={styles.logo}>
@@ -32,6 +32,7 @@ export default function Navbar() {
                 fill="#333333"
               />
             </svg>
+            <div className="sr-only">Homepage</div>
           </Link>
 
           <nav>
@@ -67,6 +68,6 @@ export default function Navbar() {
           </nav>
         </div>
       </InnerWrapper>
-    </div>
+    </header>
   );
 }

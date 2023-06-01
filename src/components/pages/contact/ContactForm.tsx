@@ -148,6 +148,8 @@ export default function Contact() {
           <Alert type={formFeedback.type}>{formFeedback.message}</Alert>
         )}
 
+        <h2 className="h3">Enquiry form</h2>
+
         <form onSubmit={(event) => onSubmitForm(event)} className={styles.form}>
           <div className={styles.row}>
             <label htmlFor="name" className={styles.label}>

@@ -29,11 +29,11 @@ export default function Archive() {
               <div className={`${styles.cell} ${styles.heading}`}>Client</div>
               <div className={`${styles.cell} ${styles.heading}`}>Description</div>
 
-              {projects.map((project) => (
-                <>
+              {projects.map((project, index) => (
+                <span key={index}>
                   <div className={`${styles.cell} ${styles.title}`}>{project.title}</div>
                   <div className={styles.cell}>{project.text}</div>
-                </>
+                </span>
               ))}
             </div>
           </div>

@@ -17,6 +17,8 @@ interface project {
 }
 
 export default function Project({ project }: project) {
+  const techTerms = project.tech.sort();
+
   return (
     <div className={styles.project}>
       <div className={styles.image}>
@@ -33,7 +35,7 @@ export default function Project({ project }: project) {
 
           <h3>Tech stack</h3>
           <p className={styles.tech}>
-            {project.tech.map((term, index) => (
+            {techTerms.map((term, index) => (
               <span key={index}>{term}</span>
             ))}
           </p>

@@ -48,3 +48,9 @@
     color: var(--c-white);
   }
 }
+
+.required {
+  color: var(--c-accent);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-caption);
+}

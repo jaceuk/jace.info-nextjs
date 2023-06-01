@@ -4,11 +4,11 @@ import Image from 'next/image';
 import content from '@content/contact.json';
 import ContactForm from './ContactForm';
 import Marty from '@images/marty.jpg';
-import styles from './Contact.module.scss';
+import styles from './ContactPage.module.scss';
 
 export default function Contact() {
   return (
-    <section className="with-gradient">
+    <main className="with-gradient">
       <InnerWrapper>
         <div className={styles.contact}>
           <div className={styles.intro}>
@@ -24,6 +24,6 @@ export default function Contact() {
           </div>
         </div>
       </InnerWrapper>
-    </section>
+    </main>
   );
 }

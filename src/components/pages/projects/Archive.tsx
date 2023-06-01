@@ -3,7 +3,6 @@ import content from '@content/archive.json';
 import styles from './Archive.module.scss';
 
 function compareStrings(a: string, b: string) {
-  // Assuming you want case-insensitive comparison
   a = a.toLowerCase();
   b = b.toLowerCase();
 
@@ -26,14 +25,16 @@ export default function Archive() {
             </div>
 
             <div className={styles.table}>
-              <div className={`${styles.cell} ${styles.heading}`}>Client</div>
-              <div className={`${styles.cell} ${styles.heading}`}>Description</div>
+              <div className={styles.row}>
+                <div className={`${styles.cell} ${styles.heading}`}>Client</div>
+                <div className={`${styles.cell} ${styles.heading}`}>Description</div>
+              </div>
 
               {projects.map((project, index) => (
-                <span key={index}>
+                <div className={styles.row} key={index}>
                   <div className={`${styles.cell} ${styles.title}`}>{project.title}</div>
                   <div className={styles.cell}>{project.text}</div>
-                </span>
+                </div>
               ))}
             </div>
           </div>

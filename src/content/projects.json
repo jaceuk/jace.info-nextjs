@@ -6,7 +6,7 @@
       "title": "Dogs to Adopt",
       "slug": "dogs-to-adopt",
       "type": "Website",
-      "intro": "A website to help abandoned dogs find new homes by allowing users to search dog shelters that are within their area.",
+      "intro": "A website to help abandoned dogs find new homes by allowing users to search dog shelters in their area.",
       "tech": [
         "HTML",
         "React",
@@ -35,8 +35,8 @@
       "title": "VIP Dine",
       "slug": "vip-dine",
       "type": "Website",
-      "intro": "A brochureware website for a company that offers a low cost way for restaurants to take table reservations and food orders online.",
-      "tech": ["HTML", "React", "CSS/Sass", "JavaScript", "Gatsby", "UX/UI"],
+      "intro": "A brochureware website for a company that offers a low cost way for restaurants to take online reservations and food orders.",
+      "tech": ["HTML", "React", "CSS/Sass", "JavaScript", "Gatsby", "UX/UI", "Stripe"],
       "date": "2222-09-21",
       "lighthouseScores": [92, 95, 92, 90]
     },

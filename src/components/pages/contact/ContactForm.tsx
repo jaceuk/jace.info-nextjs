@@ -151,7 +151,7 @@ export default function Contact() {
         <form onSubmit={(event) => onSubmitForm(event)} className={styles.form}>
           <div className={styles.row}>
             <label htmlFor="name" className={styles.label}>
-              Your name (required)
+              Your name <span className={styles.required}>(required)</span>
             </label>
             <input
               id="name"
@@ -165,7 +165,7 @@ export default function Contact() {
 
           <div className={styles.row}>
             <label htmlFor="email" className={styles.label}>
-              Your email address (required)
+              Your email address <span className={styles.required}>(required)</span>
             </label>
             <input
               id="email"
@@ -179,7 +179,7 @@ export default function Contact() {
 
           <div className={styles.row}>
             <label htmlFor="message" className={styles.label}>
-              Your message (required)
+              Your message <span className={styles.required}>(required)</span>
             </label>
             <textarea
               id="message"

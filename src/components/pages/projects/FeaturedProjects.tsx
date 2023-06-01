@@ -1,10 +1,10 @@
 import InnerWrapper from '@components/shared/InnerWrapper';
 import content from '@content/projects.json';
-import styles from './Projects.module.scss';
+import styles from './FeaturedProjects.module.scss';
 import Project from './Project';
 import Archive from './Archive';
 
-export default function Projects() {
+export default function FeaturedProjects() {
   return (
     <>
       <section className="with-gradient">

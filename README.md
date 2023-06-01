@@ -53,7 +53,8 @@ To get it working:
   - Restart App
 
 - Manaully edit the Application startup file `node_modules/.bin/next` NOT using the the plesk UI
-  -- You can get the script from `node_modules/next/bin/next`, alter it and replace the one on the server
-- Change defaultCommand from `dev'`to `start`
+  -- You can get the script from `node_modules/next/dist/bin/next`, alter it and replace the one on the server
+  -- Change defaultCommand from `dev'`to `start`
+- In Plesk change the permissions on `node_modules/.bin/next` to rwx r-x r-x
 - Run the build script from plesk
 - Cick Restart App in plesk

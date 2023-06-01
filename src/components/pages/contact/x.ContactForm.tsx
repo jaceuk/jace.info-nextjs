@@ -42,10 +42,44 @@ export default function Contact() {
     }));
   }
 
-  async function sendMessage(event: React.FormEvent<HTMLFormElement>) {
+  async function checkRecaptcha(token: string) {
+    const response = await fetch('api/contact/verify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        reCaptchaKey: token,
+      }),
+    }).catch((error) => {
+      console.log(error);
+    });
+
+    return response;
+  }
+
+  async function onSubmitForm(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setFormFeedback({ type: 'sending', message: SENDING_MESSAGE });
 
+    window.grecaptcha.ready(() => {
+      window.grecaptcha
+        .execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'contactSubmit' })
+        .then(async (token: string) => {
+          const response = await checkRecaptcha(token);
+
+          const { error, message } = await response?.json();
+
+          if (error) {
+            setFormFeedback({ type: 'error', message: RECAPTCHA_ERROR_MESSAGE });
+          } else {
+            sendMessage();
+          }
+        });
+    });
+  }
+
+  async function sendMessage() {
     if (inputs.name && inputs.email && inputs.message) {
       try {
         const response = await fetch('api/contact', {
@@ -116,7 +150,7 @@ export default function Contact() {
 
         <h2 className="h3">Enquiry form</h2>
 
-        <form onSubmit={(event) => sendMessage(event)} className={styles.form}>
+        <form onSubmit={(event) => onSubmitForm(event)} className={styles.form}>
           <div className={styles.row}>
             <label htmlFor="name" className={styles.label}>
               Your name <span className={styles.required}>(required)</span>

@@ -36,8 +36,8 @@ export async function POST(req: Request) {
         <p><strong>Message: </strong> ${message}</p>
       `,
     });
+    return new Response(JSON.stringify({ error: false }));
   } catch (error) {
     return new Response(JSON.stringify({ error: true }));
   }
-  return new Response(JSON.stringify({ error: false }));
 }

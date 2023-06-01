@@ -13,6 +13,11 @@ declare global {
   }
 }
 
+const RECAPTCHA_ERROR_MESSAGE = 'Captcha could not be verified. Please try again.';
+const SENDING_ERROR_MESSAGE =
+  'There was a problem sending your message, please try again. If the problem perists please email info@jace.info.';
+const SENDING_SUCCESS_MESSAGE = 'Your message was sent successfully.';
+
 export default function Contact() {
   const [inputs, setInputs] = React.useState({
     name: '',
@@ -20,6 +25,7 @@ export default function Contact() {
     message: '',
   });
   const [formState, setFormState] = React.useState<'' | 'error' | 'loading' | 'success'>('');
+  const [formMessage, setFormMessage] = React.useState('');
 
   function handleChange(element: { target: { id: any; value: any } }) {
     setInputs((prev) => ({
@@ -37,8 +43,8 @@ export default function Contact() {
       body: JSON.stringify({
         reCaptchaKey: token,
       }),
-    }).catch(() => {
-      setFormState('error');
+    }).catch((error) => {
+      console.log(error);
     });
 
     return response;
@@ -54,12 +60,11 @@ export default function Contact() {
         .then(async (token: string) => {
           const response = await checkRecaptcha(token);
 
-          const { error } = await response?.json();
-          console.log(error);
+          const { error, message } = await response?.json();
 
           if (error) {
-            console.log('Captcha could not be verified. Please try again.');
             setFormState('error');
+            setFormMessage(RECAPTCHA_ERROR_MESSAGE);
           } else {
             sendMessage();
           }
@@ -82,10 +87,13 @@ export default function Contact() {
 
         if (error) {
           setFormState('error');
+          setFormMessage(SENDING_ERROR_MESSAGE);
           return;
         }
 
         setFormState('success');
+        setFormMessage(SENDING_SUCCESS_MESSAGE);
+
         setInputs({
           name: '',
           email: '',
@@ -93,6 +101,7 @@ export default function Contact() {
         });
       } catch (error) {
         setFormState('error');
+        setFormMessage(SENDING_ERROR_MESSAGE);
       }
     }
   }
@@ -131,14 +140,9 @@ export default function Contact() {
           </Overlay>
         )}
 
-        {formState === 'error' && (
-          <Alert type="error">
-            There was a problem sending your message, please try again. If the problem perists please email
-            info@jace.info.
-          </Alert>
-        )}
+        {formState === 'error' && <Alert type="error">{formMessage}</Alert>}
 
-        {formState === 'success' && <Alert type="success">Your message was sent successfully</Alert>}
+        {formState === 'success' && <Alert type="success">{formMessage}</Alert>}
 
         <form onSubmit={(event) => onSubmitForm(event)} className={styles.form}>
           <div className={styles.row}>

@@ -13,10 +13,16 @@ declare global {
   }
 }
 
+interface formFeedback {
+  type: '' | 'error' | 'success' | 'sending';
+  message: string;
+}
+
 const RECAPTCHA_ERROR_MESSAGE = 'Captcha could not be verified. Please try again.';
 const SENDING_ERROR_MESSAGE =
   'There was a problem sending your message, please try again. If the problem perists please email info@jace.info.';
 const SENDING_SUCCESS_MESSAGE = 'Your message was sent successfully.';
+const SENDING_MESSAGE = 'Sending';
 
 export default function Contact() {
   const [inputs, setInputs] = React.useState({
@@ -24,8 +30,10 @@ export default function Contact() {
     email: '',
     message: '',
   });
-  const [formState, setFormState] = React.useState<'' | 'error' | 'loading' | 'success'>('');
-  const [formMessage, setFormMessage] = React.useState('');
+  const [formFeedback, setFormFeedback] = React.useState<formFeedback>({
+    type: '',
+    message: '',
+  });
 
   function handleChange(element: { target: { id: any; value: any } }) {
     setInputs((prev) => ({
@@ -52,7 +60,7 @@ export default function Contact() {
 
   async function onSubmitForm(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setFormState('loading');
+    setFormFeedback({ type: 'sending', message: SENDING_MESSAGE });
 
     window.grecaptcha.ready(() => {
       window.grecaptcha
@@ -63,8 +71,7 @@ export default function Contact() {
           const { error, message } = await response?.json();
 
           if (error) {
-            setFormState('error');
-            setFormMessage(RECAPTCHA_ERROR_MESSAGE);
+            setFormFeedback({ type: 'error', message: RECAPTCHA_ERROR_MESSAGE });
           } else {
             sendMessage();
           }
@@ -86,13 +93,11 @@ export default function Contact() {
         const { error } = await response.json();
 
         if (error) {
-          setFormState('error');
-          setFormMessage(SENDING_ERROR_MESSAGE);
+          setFormFeedback({ type: 'error', message: SENDING_ERROR_MESSAGE });
           return;
         }
 
-        setFormState('success');
-        setFormMessage(SENDING_SUCCESS_MESSAGE);
+        setFormFeedback({ type: 'success', message: SENDING_SUCCESS_MESSAGE });
 
         setInputs({
           name: '',
@@ -100,8 +105,7 @@ export default function Contact() {
           message: '',
         });
       } catch (error) {
-        setFormState('error');
-        setFormMessage(SENDING_ERROR_MESSAGE);
+        setFormFeedback({ type: 'error', message: SENDING_ERROR_MESSAGE });
       }
     }
   }
@@ -134,15 +138,15 @@ export default function Contact() {
   return (
     <div className={styles.formContainer}>
       <Card>
-        {formState === 'loading' && (
+        {formFeedback.type === 'sending' && (
           <Overlay>
-            <Loader>Sending</Loader>
+            <Loader>{formFeedback.message}</Loader>
           </Overlay>
         )}
 
-        {formState === 'error' && <Alert type="error">{formMessage}</Alert>}
-
-        {formState === 'success' && <Alert type="success">{formMessage}</Alert>}
+        {(formFeedback.type === 'error' || formFeedback.type === 'success') && (
+          <Alert type={formFeedback.type}>{formFeedback.message}</Alert>
+        )}
 
         <form onSubmit={(event) => onSubmitForm(event)} className={styles.form}>
           <div className={styles.row}>

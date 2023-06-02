@@ -6,6 +6,7 @@ import Overlay from '@components/shared/Overlay';
 import Loader from '@components/shared/Loader';
 import Alert from '@components/shared/Alert';
 import Card from '@/components/shared/Card';
+import { RECAPTCHA_SITE_KEY } from '@constants/index';
 
 declare global {
   interface Window {
@@ -63,19 +64,17 @@ export default function Contact() {
     setFormFeedback({ type: 'sending', message: SENDING_MESSAGE });
 
     window.grecaptcha.ready(() => {
-      window.grecaptcha
-        .execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'contactSubmit' })
-        .then(async (token: string) => {
-          const response = await checkRecaptcha(token);
+      window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'contactSubmit' }).then(async (token: string) => {
+        const response = await checkRecaptcha(token);
 
-          const { error, message } = await response?.json();
+        const { error, message } = await response?.json();
 
-          if (error) {
-            setFormFeedback({ type: 'error', message: RECAPTCHA_ERROR_MESSAGE });
-          } else {
-            sendMessage();
-          }
-        });
+        if (error) {
+          setFormFeedback({ type: 'error', message: RECAPTCHA_ERROR_MESSAGE });
+        } else {
+          sendMessage();
+        }
+      });
     });
   }
 

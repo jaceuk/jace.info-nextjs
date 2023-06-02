@@ -7,10 +7,9 @@ import Script from 'next/script';
 import { Poppins } from 'next/font/google';
 import Header from '@/components/shared/Header';
 import Footer from '@/components/shared/Footer';
+import { GA_MEASUREMENT_ID, RECAPTCHA_SITE_KEY } from '@constants/index';
 
 const poppins = Poppins({ weight: ['300', '400', '600', '700', '900'], subsets: ['latin'] });
-const GA_MEASUREMENT_ID = 'G-VFXHZ7Q5NS';
-const RECAPTCHA_SITE_KEY = '6LfjPjsfAAAAAPQllouwQrnZ_mTdJjAacliDMDQ4';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

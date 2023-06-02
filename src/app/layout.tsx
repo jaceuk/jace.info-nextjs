@@ -19,11 +19,6 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
-        <Header />
-        {children}
-        <Footer />
-      </body>
       <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
@@ -33,6 +28,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           gtag('config', '${GA_MEASUREMENT_ID}');
         `}
       </Script>
+      <body className={poppins.className}>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

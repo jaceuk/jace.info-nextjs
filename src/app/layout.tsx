@@ -10,6 +10,7 @@ import Footer from '@/components/shared/Footer';
 
 const poppins = Poppins({ weight: ['300', '400', '600', '700', '900'], subsets: ['latin'] });
 const GA_MEASUREMENT_ID = 'G-VFXHZ7Q5NS';
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -19,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <Footer />
       </body>
-      <Script src={`https://www.google.com/recaptcha/api.js?render=${process.env.RECAPTCHA_SITE_KEY}`} />
+      <Script src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`} />
       <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
       <Script id="google-analytics">
         {`

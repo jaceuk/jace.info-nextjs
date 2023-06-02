@@ -110,31 +110,6 @@ export default function Contact() {
     }
   }
 
-  React.useEffect(() => {
-    const loadScriptByURL = (id: string, url: string, callback: () => void) => {
-      const isScriptExist = document.getElementById(id);
-
-      if (!isScriptExist) {
-        const script = document.createElement('script');
-        script.src = url;
-        script.id = id;
-        script.onload = () => {
-          if (callback) callback();
-        };
-        document.body.appendChild(script);
-      }
-
-      if (isScriptExist && callback) callback();
-    };
-
-    // load the script by passing the URL
-    loadScriptByURL(
-      'recaptcha-key',
-      `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`,
-      () => {},
-    );
-  }, []);
-
   return (
     <div className={styles.formContainer}>
       <Card>

@@ -21,7 +21,6 @@ export default function FeaturedProjects() {
           </div>
         </InnerWrapper>
       </section>
-      <Archive />
     </>
   );
 }

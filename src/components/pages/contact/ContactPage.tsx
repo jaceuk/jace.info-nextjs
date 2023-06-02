@@ -19,7 +19,7 @@ export default function Contact() {
           <div className={styles.container}>
             <ContactForm />
             <div className={styles.image}>
-              <Image src={Marty} alt="" fill priority placeholder="blur" />
+              <Image src={Marty} alt="" fill priority />
             </div>
           </div>
         </div>

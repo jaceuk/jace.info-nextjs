@@ -10,7 +10,7 @@ export default function Hero() {
       <InnerWrapper>
         <div className={styles.hero}>
           <div className={styles.image}>
-            <Image src={Duck} alt="" fill priority placeholder="blur" />
+            <Image src={Duck} alt="" fill priority />
           </div>
 
           <div>

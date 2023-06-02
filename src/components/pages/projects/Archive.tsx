@@ -1,5 +1,5 @@
-import InnerWrapper from '@components/shared/InnerWrapper';
-import content from '@content/archive.json';
+import InnerWrapper from '@/components/shared/InnerWrapper';
+import content from '@/content/archive.json';
 import styles from './Archive.module.scss';
 
 function compareStrings(a: string, b: string) {

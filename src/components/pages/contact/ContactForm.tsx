@@ -2,11 +2,12 @@
 
 import * as React from 'react';
 import styles from './ContactForm.module.scss';
-import Overlay from '@components/shared/Overlay';
-import Loader from '@components/shared/Loader';
-import Alert from '@components/shared/Alert';
+import Overlay from '@/components/shared/Overlay';
+import Loader from '@/components/shared/Loader';
+import Alert from '@/components/shared/Alert';
 import Card from '@/components/shared/Card';
-import { RECAPTCHA_SITE_KEY } from '@constants/index';
+import { RECAPTCHA_SITE_KEY } from '@/constants/global';
+import Button from '@/components/shared/Button';
 
 declare global {
   interface Window {
@@ -167,7 +168,7 @@ export default function Contact() {
             />
           </div>
 
-          <button className={styles.btn}>Send your message</button>
+          <Button>Send your message</Button>
         </form>
       </Card>
     </div>

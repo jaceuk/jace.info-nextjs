@@ -1,8 +1,8 @@
 import InnerWrapper from '@components/shared/InnerWrapper';
 import SkillIcons from './SkillIcons';
-import content from '@content/about.json';
+import content from '@/content/about.json';
 import styles from './About.module.scss';
-import Card from '@components/shared/Card';
+import Card from '@/components/shared/Card';
 
 export default function About() {
   return (

@@ -3,7 +3,7 @@ import InnerWrapper from '@components/shared/InnerWrapper';
 import Image from 'next/image';
 import content from '@content/contact.json';
 import ContactForm from './ContactForm';
-import Marty from '@images/marty.jpg';
+import Marty from '@/images/marty.jpg';
 import styles from './ContactPage.module.scss';
 
 export default function Contact() {
@@ -19,7 +19,7 @@ export default function Contact() {
           <div className={styles.container}>
             <ContactForm />
             <div className={styles.image}>
-              <Image src={Marty} alt="" fill />
+              <Image src={Marty} alt="" fill priority placeholder="blur" />
             </div>
           </div>
         </div>

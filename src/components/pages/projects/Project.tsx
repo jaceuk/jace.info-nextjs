@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Card from '@components/shared/Card';
+import Card from '@/components/shared/Card';
 import Lighthouse from './Lighthouse';
 import styles from './Project.module.scss';
 

@@ -3,7 +3,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import InnerWrapper from '@components/shared/InnerWrapper';
+import InnerWrapper from '@/components/shared/InnerWrapper';
 import styles from './Header.module.scss';
 
 export default function Header() {

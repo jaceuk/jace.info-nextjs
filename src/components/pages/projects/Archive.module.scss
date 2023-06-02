@@ -23,8 +23,8 @@
 
   .cell {
     @media (min-width: 768px) {
-      border-bottom: 1px solid var(--c-grey);
-      border-right: 1px solid var(--c-grey);
+      border-bottom: 1px solid var(--c-divider);
+      border-right: 1px solid var(--c-divider);
       padding: var(--s-1-2);
     }
 

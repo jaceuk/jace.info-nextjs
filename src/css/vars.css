@@ -18,29 +18,41 @@
   --s-4-5: clamp(var(--s-4), 1.7455rem + 3.8788vw, var(--s-5));
 
   /* colors */
-  --c-black: #000;
-  --c-nearly-black: #333;
-  --c-grey: #bdbdbd;
-  --c-pale-grey: #f2f2f2;
-  --c-white: #fff;
-  --c-accent: #d70000;
-  --c-good: #008341;
-  --c-average: rgb(211, 123, 0);
-  --c-poor: #c74845;
-  --c-lighthouseGood: #00cc66;
-  --c-lighthouseGoodDark: #026918;
-  --c-lighthouseGoodPale: #e6faf0;
-  --c-lighthouseAverage: #ffaa33;
-  --c-lighthouseAverageDark: #c33300;
-  --c-lighthouseAveragePale: #fff7eb;
-  --c-lighthousePoor: #f33;
-  --c-lighthousePoorDark: #c00;
-  --c-lighthousePoorPale: #ffebeb;
+  --c-text: var(--c-grey-dark);
+  --c-divider: var(--c-grey-pale);
+  --c-paper: var(--c-white);
+  --c-accent: var(--c-red-dark);
+  --c-lighthouseGood: var(--c-green);
+  --c-lighthouseGoodDark: var(--c-green-dark);
+  --c-lighthouseGoodPale: var(--c-green-pale);
+  --c-lighthouseAverage: var(--c-orange);
+  --c-lighthouseAverageDark: var(--c-orange-dark);
+  --c-lighthouseAveragePale: var(--c-orange-pale);
+  --c-lighthousePoor: var(--c-red);
+  --c-lighthousePoorDark: var(--c-red-dark);
+  --c-lighthousePoorPale: var(--c-red-pale);
 
-  --c-alert-success-text: #026918;
-  --c-alert-success-bg: #e6faf0;
-  --c-alert-error-text: #c00;
-  --c-alert-error-bg: #ffebeb;
+  --c-alert-success-text: var(--c-green-dark);
+  --c-alert-success-bg: var(--c-green-pale);
+  --c-alert-error-text: var(--c-red-dark);
+  --c-alert-error-bg: var(--c-red-pale);
+
+  --c-grey-dark: #333;
+  --c-grey-pale: #f2f2f2;
+  --c-nearly-black: #252525;
+  --c-white: #fff;
+
+  --c-red: #f33;
+  --c-red-dark: #c00;
+  --c-red-pale: #ffebeb;
+
+  --c-green: #00cc66;
+  --c-green-dark: #026918;
+  --c-green-pale: #e6faf0;
+
+  --c-orange: #ffaa33;
+  --c-orange-dark: #c33300;
+  --c-orange-pale: #fff7eb;
 
   /* font size */
   --fs-h1-hero: clamp(5.2rem, 2.6182rem + 5.8182vw, 9.6rem);
@@ -64,5 +76,14 @@
   /* misc */
   --max-readable-width: 750px;
   --transition: all 0.2s ease;
-  --section-background: linear-gradient(180deg, var(--c-pale-grey) 0%, rgba(242, 242, 242, 0) var(--s-4-5));
+  --section-background: linear-gradient(180deg, var(--c-divider) 0%, var(--c-paper) var(--s-4-5));
+}
+
+.dark {
+  --c-text: var(--c-white);
+  --c-divider: var(--c-nearly-black);
+  --c-paper: var(--c-grey-dark);
+  --c-accent: var(--c-green);
+
+  --section-background: linear-gradient(180deg, var(--c-divider) 0%, var(--c-paper) var(--s-4-5));
 }

@@ -7,8 +7,8 @@ import InnerWrapper from '@/components/shared/InnerWrapper';
 import styles from './Header.module.scss';
 
 export default function Header() {
-  const pathName = usePathname();
   const [activeButton, setActiveButton] = React.useState<React.RefObject<HTMLAnchorElement>>();
+  const pathName = usePathname();
   const homeButton = React.useRef<HTMLAnchorElement>(null);
   const projectsButton = React.useRef<HTMLAnchorElement>(null);
   const contactButton = React.useRef<HTMLAnchorElement>(null);
@@ -34,6 +34,8 @@ export default function Header() {
             </svg>
             <div className="sr-only">Homepage</div>
           </Link>
+
+          <button>Dark</button>
 
           <nav>
             <div className={styles.navLinks}>

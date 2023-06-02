@@ -4,9 +4,9 @@ import Image from 'next/image';
 import content from '@content/contact.json';
 import ContactForm from './ContactForm';
 import Marty from '@/images/marty.jpg';
-import styles from './ContactPage.module.scss';
+import styles from './Page.module.scss';
 
-export default function Contact() {
+export default function Page() {
   return (
     <main className="with-gradient">
       <InnerWrapper>

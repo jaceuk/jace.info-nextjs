@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import InnerWrapper from '@/components/shared/InnerWrapper';
-import Duck from '@/images/duck.jpg';
+import Spock from '@/images/spock.jpg';
 import content from '@/content/hero.json';
 import styles from './Hero.module.scss';
 
@@ -10,7 +10,7 @@ export default function Hero() {
       <InnerWrapper>
         <div className={styles.hero}>
           <div className={styles.image}>
-            <Image src={Duck} alt="" fill priority />
+            <Image src={Spock} alt="" fill priority />
           </div>
 
           <div>

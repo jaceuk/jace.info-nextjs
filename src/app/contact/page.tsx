@@ -1,4 +1,4 @@
-import ContactPage from '@/components/pages/contact/ContactPage';
+import Page from '@/components/pages/contact/Page';
 
 export const metadata = {
   title: "Jason Newington - let's talk",
@@ -6,5 +6,5 @@ export const metadata = {
 };
 
 export default function Contact() {
-  return <ContactPage />;
+  return <Page />;
 }

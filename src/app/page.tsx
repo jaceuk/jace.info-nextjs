@@ -1,4 +1,4 @@
-import HomePage from '@/components/pages/home/HomePage';
+import Page from '@/components/pages/home/Page';
 
 export const metadata = {
   title: 'Jason Newington - helping make the web a better place',
@@ -6,5 +6,5 @@ export const metadata = {
 };
 
 export default function Home() {
-  return <HomePage />;
+  return <Page />;
 }

@@ -1,7 +1,7 @@
 import FeaturedProjects from './FeaturedProjects';
 import Archive from './Archive';
 
-export default function ProjectsPage() {
+export default function Page() {
   return (
     <main>
       <FeaturedProjects />

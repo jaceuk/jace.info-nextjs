@@ -1,4 +1,4 @@
-import ProjectsPage from '@/components/pages/projects/ProjectsPage';
+import Page from '@/components/pages/projects/Page';
 
 export const metadata = {
   title: 'Jason Newington - past projects',
@@ -6,5 +6,5 @@ export const metadata = {
 };
 
 export default function Projects() {
-  return <ProjectsPage />;
+  return <Page />;
 }

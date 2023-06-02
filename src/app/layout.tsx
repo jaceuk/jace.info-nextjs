@@ -10,7 +10,7 @@ import Footer from '@/components/shared/Footer';
 
 const poppins = Poppins({ weight: ['300', '400', '600', '700', '900'], subsets: ['latin'] });
 const GA_MEASUREMENT_ID = 'G-VFXHZ7Q5NS';
-const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+const RECAPTCHA_SITE_KEY = '6LfjPjsfAAAAAPQllouwQrnZ_mTdJjAacliDMDQ4';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

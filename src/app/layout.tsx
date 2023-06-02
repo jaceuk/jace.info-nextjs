@@ -11,11 +11,6 @@ import Footer from '@/components/shared/Footer';
 const poppins = Poppins({ weight: ['300', '400', '600', '700', '900'], subsets: ['latin'] });
 const GA_MEASUREMENT_ID = 'G-VFXHZ7Q5NS';
 
-export const metadata = {
-  title: 'Jason Newington - helping make the web a better place',
-  description: 'A Front End Developer with an eye for UX and a passion for accessibility and helping people.',
-};
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">

@@ -17,10 +17,12 @@
   --s-2-5: clamp(var(--s-2), -0.5818rem + 5.8182vw, var(--s-5));
   --s-4-5: clamp(var(--s-4), 1.7455rem + 3.8788vw, var(--s-5));
 
-  /* colors */
+  /* colour tokens */
   --c-text: var(--c-grey-dark);
   --c-divider: var(--c-grey-pale);
   --c-paper: var(--c-white);
+  --c-card: var(--c-white);
+  --c-card-shadow: #00000025;
   --c-accent: var(--c-red-dark);
   --c-lighthouseGood: var(--c-green);
   --c-lighthouseGoodDark: var(--c-green-dark);
@@ -31,15 +33,22 @@
   --c-lighthousePoor: var(--c-red);
   --c-lighthousePoorDark: var(--c-red-dark);
   --c-lighthousePoorPale: var(--c-red-pale);
+  --c-input-bg: var(--c-white);
 
   --c-alert-success-text: var(--c-green-dark);
   --c-alert-success-bg: var(--c-green-pale);
+  --c-alert-success-border: var(--c-green-pale);
   --c-alert-error-text: var(--c-red-dark);
   --c-alert-error-bg: var(--c-red-pale);
+  --c-alert-error-border: var(--c-red-pale);
+
+  /* colours */
 
   --c-grey-dark: #333;
   --c-grey-pale: #f2f2f2;
   --c-nearly-black: #252525;
+  --c-black: #18181a;
+  --c-black-pure: #000;
   --c-white: #fff;
 
   --c-red: #f33;
@@ -79,11 +88,26 @@
   --section-background: linear-gradient(180deg, var(--c-divider) 0%, var(--c-paper) var(--s-4-5));
 }
 
-.dark {
+[data-theme='dark'] {
   --c-text: var(--c-white);
-  --c-divider: var(--c-nearly-black);
-  --c-paper: var(--c-grey-dark);
+  --c-divider: var(--c-grey-dark);
+  --c-paper: var(--c-black);
+  --c-card: var(--c-black);
+  --c-card-shadow: #ffffff50;
   --c-accent: var(--c-green);
+  --c-lighthouseGoodPale: var(--c-black);
+  --c-lighthouseGoodDark: var(--c-green);
+  --c-lighthousePoorPale: var(--c-black);
+  --c-lighthousePoorDark: var(--c-red);
+  --c-lighthouseAveragePale: var(--c-black);
+  --c-lighthouseAverageDark: var(--c-orange);
+  --c-input-bg: var(--c-black-pure);
+  --c-alert-success-text: var(--c-green);
+  --c-alert-success-bg: var(--c-black);
+  --c-alert-success-border: var(--c-green);
+  --c-alert-error-text: var(--c-red);
+  --c-alert-error-bg: var(--c-black);
+  --c-alert-error-border: var(--c-red);
 
   --section-background: linear-gradient(180deg, var(--c-divider) 0%, var(--c-paper) var(--s-4-5));
 }

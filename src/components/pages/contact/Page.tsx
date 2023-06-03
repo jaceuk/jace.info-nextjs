@@ -1,10 +1,9 @@
 import * as React from 'react';
 import InnerWrapper from '@components/shared/InnerWrapper';
-import Image from 'next/image';
 import content from '@content/contact.json';
 import ContactForm from './ContactForm';
-import Marty from '@/images/marty.jpg';
 import styles from './Page.module.scss';
+import HeroImage from './HeroImage';
 
 export default function Page() {
   return (
@@ -18,9 +17,7 @@ export default function Page() {
 
           <div className={styles.container}>
             <ContactForm />
-            <div className={styles.image}>
-              <Image src={Marty} alt="" fill priority />
-            </div>
+            <HeroImage />
           </div>
         </div>
       </InnerWrapper>

@@ -1,7 +1,6 @@
-import Image from 'next/image';
 import InnerWrapper from '@/components/shared/InnerWrapper';
 import styles from './Page.module.scss';
-import Borg from '@/images/borg.jpg';
+import HeroImage from './HeroImage';
 
 export default function Page() {
   return (
@@ -13,9 +12,7 @@ export default function Page() {
             <p className="subtitle">You will be assimilated, restistance is futile.</p>
           </div>
 
-          <div className={styles.image}>
-            <Image src={Borg} alt="" fill priority />
-          </div>
+          <HeroImage />
         </div>
       </InnerWrapper>
     </main>

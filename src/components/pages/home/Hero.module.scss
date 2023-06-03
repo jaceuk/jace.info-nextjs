@@ -8,17 +8,6 @@
     flex-direction: row;
   }
 
-  .image {
-    width: 100%;
-    max-width: 520px;
-    position: relative;
-    aspect-ratio: 1 / 1.14;
-
-    @media (min-width: 768px) {
-      order: 2;
-    }
-  }
-
   h1 {
     margin: var(--s-1-2) 0;
   }

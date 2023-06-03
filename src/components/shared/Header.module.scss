@@ -12,11 +12,18 @@
 
     svg {
       height: 50px;
+      fill: var(--c-text);
 
       @media (min-width: 768px) {
         height: 70px;
       }
     }
+  }
+
+  .logoContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
   }
 
   nav {

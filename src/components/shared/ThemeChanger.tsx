@@ -21,11 +21,11 @@ export function ThemeChanger() {
     <button
       className={styles.button}
       onClick={() => {
-        setTheme(theme === 'light' ? 'dark' : 'light');
+        setTheme(theme === 'dark' ? 'light' : 'dark');
       }}
     >
-      {theme === 'light' ? <HalfMoon /> : <SunLight />}
-      <span className="sr-only">Enable {theme === 'light' ? 'dark' : 'light'} mode</span>
+      {theme === 'dark' ? <SunLight /> : <HalfMoon />}
+      <span className="sr-only">Enable {theme === 'dark' ? 'light' : 'dark'} mode</span>
     </button>
   );
 }

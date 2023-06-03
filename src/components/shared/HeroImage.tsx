@@ -14,8 +14,6 @@ export default function Hero({ image, darkImage }: props) {
   const [mounted, setMounted] = React.useState(false);
   const { theme } = useTheme();
 
-  console.log(image.src);
-
   // useEffect only runs on the client, so now we can safely show the UI
   React.useEffect(() => {
     setMounted(true);

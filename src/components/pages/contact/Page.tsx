@@ -3,7 +3,9 @@ import InnerWrapper from '@components/shared/InnerWrapper';
 import content from '@content/contact.json';
 import ContactForm from './ContactForm';
 import styles from './Page.module.scss';
-import HeroImage from './HeroImage';
+import Marty from '@/images/marty.jpg';
+import MartyDark from '@/images/marty-dark.jpg';
+import HeroImage from '@components/shared/HeroImage';
 
 export default function Page() {
   return (
@@ -17,7 +19,7 @@ export default function Page() {
 
           <div className={styles.container}>
             <ContactForm />
-            <HeroImage />
+            <HeroImage image={Marty} darkImage={MartyDark} />
           </div>
         </div>
       </InnerWrapper>

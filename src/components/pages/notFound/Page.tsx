@@ -1,6 +1,8 @@
 import InnerWrapper from '@/components/shared/InnerWrapper';
 import styles from './Page.module.scss';
-import HeroImage from './HeroImage';
+import Borg from '@/images/borg.jpg';
+import BorgDark from '@/images/borg-dark.jpg';
+import HeroImage from '@/components/shared/HeroImage';
 
 export default function Page() {
   return (
@@ -12,7 +14,7 @@ export default function Page() {
             <p className="subtitle">You will be assimilated, restistance is futile.</p>
           </div>
 
-          <HeroImage />
+          <HeroImage image={Borg} darkImage={BorgDark} />
         </div>
       </InnerWrapper>
     </main>
